@@ -4,6 +4,10 @@
 
 An MCP server to create, manage and publish X/Twitter posts directly through Claude chat.
 
+<a href="https://glama.ai/mcp/servers/jsxr09dktf">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/jsxr09dktf/badge" alt="X(Twitter) Server MCP server" />
+</a>
+
 ## Quick Setup
 
 ### Installing via Smithery

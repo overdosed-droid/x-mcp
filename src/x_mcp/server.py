@@ -2,6 +2,7 @@ import os
 import json
 import logging
 import asyncio
+from tweepy.errors import TweepyException
 from datetime import datetime
 from typing import Any, Sequence
 from dotenv import load_dotenv
@@ -245,12 +246,12 @@ async def handle_publish_draft(arguments: Any) -> Sequence[TextContent]:
             ]
         else:
             raise ValueError(f"Invalid draft format for {draft_id}")
-    except tweepy.TweepError as e:
+    except TweepyException as e:
         logger.error(f"Twitter API error: {e}")
         raise RuntimeError(f"Error publishing draft {draft_id}: {e}")
     except Exception as e:
         logger.error(f"Error publishing draft {draft_id}: {str(e)}")
-        raise RuntimeError(f"Error publishing draft {draft_id}: {str(e)}")
+        raise RuntimeError(f"Error publishing draft {draft_id}: {str(e)}") from e
 
 
 async def handle_delete_draft(arguments: Any) -> Sequence[TextContent]:
